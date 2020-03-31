@@ -1,0 +1,53 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to KIRA Gallery</title>
+    <link rel="stylesheet" href="{% static 'css/grid_style.css' %}" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono&display=swap" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+       <div class="logo"><img src="{% static 'assets/spalsh.png' %}" alt="Lookr" title="Lookr"></div><h2>Face Shape</h2>
+   </div>
+  </header>
+    <div id="content">
+        <div class="gallery-list">
+            <div class="container">
+              <div class="row" id="macy-container">
+               
+                    {% for data in parameteres %} 
+                    
+                    <div class="col-md-6 demo">
+                        <ul>
+                    <li class="frame">
+                        <div class="frame-box">
+                            <img src="http://13.251.101.67:8000/{{ data.image}}" alt="" title="" width=250 height=300>
+                        </div>
+                        <div class="frame-info">
+                            <small>{{ data.gender}}</small>
+                            <span>{{ data.age}}</span>
+                            
+                            <span title="{{ data.face }}">{{ data.face }}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+                    {% endfor %}
+                
+               </div>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="container">
+                <div class="copyright"><p>Copyright ©2020 <a class="font-weight-bold ml-1" href="/">Lenskart Solutions Pvt. Ltd.</a></p></div>
+            </div>
+        </footer>
+    </body>
+</html>
