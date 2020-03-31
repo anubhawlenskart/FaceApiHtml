@@ -23,7 +23,5 @@ urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^analysedpic/', analysedpic, name='analysed picture'),
     url(r'^list/', userlist, name='user list'),
-    
-    url(r'^admin/', include(admin.site.urls)),
 ]
 static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

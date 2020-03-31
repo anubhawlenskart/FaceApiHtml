@@ -41,7 +41,7 @@ def userlist(request):
     url = 'http://13.251.101.67:8000/getresultfetched'
     req = requests.get(url)
     res = req.json()
-    #print(res.parameteres)
+
     return render(request, 'list.html', res)
 
 def validateJSON(jsonData):
