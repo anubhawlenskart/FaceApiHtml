@@ -19,7 +19,7 @@ def analysedpic(request):
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
         imagePath = settings.BASE_DIR+uploaded_file_url   
-        url = 'http://13.251.101.67:8000/getfaceattributesapi/'
+        url = 'https://kira-api.lenskart.com/getfaceattributesapi/'
         files = {'webphoto': open(imagePath, 'rb')}
         req = requests.post(url, files=files)
         res = req.json()
@@ -38,7 +38,7 @@ def analysedpic(request):
 
 
 def userlist(request):
-    url = 'http://13.251.101.67:8000/getresultfetched'
+    url = 'https://kira-api.lenskart.com/getresultfetched'
     req = requests.get(url)
     res = req.json()
 

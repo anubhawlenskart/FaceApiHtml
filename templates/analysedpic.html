@@ -40,35 +40,76 @@
                   <ul class="left">
                     <li class="age">
                       <span>
-                        <i><img width="30" src="{% static 'assets/Age.png' %}" alt=""></i>
+                        <!-- <i><img width="30" src="{% static 'assets/Age.png' %}" alt=""></i> -->
                         Age
+                        </br>
+                        {{ age}}
                       </span>
                       <strong>{{ age}}</strong>
                     </li>
                     <li class="gender"><span><i>
-                      <img width="30" src="{% static 'assets/Gender.png' %}" alt=""></i>Gender</span>
-                      <strong>{{ gender}}</strong></li>
+                      <!-- <img width="30" src="{% static 'assets/Gender.png' %}" alt=""></i> -->
+                      Gender</span>
+                      <strong>{{ gender}}</strong>
+                    </li>
+                    <li class="fshape"><span>
+                      <!-- <i><img width="30" src="{% static 'assets/Age.png' %}" alt=""></i> -->
+                      Age Estimation</span><strong>{{ ageEstimation}} </strong>
+                    </li>
 
+                    <li class="fshape"><span>
+                      <!-- <i><img width="30" src="{% static 'assets/Age.png' %}" alt=""></i> -->
+                      Eyeglass</span><strong>{{ eyeglass}}</strong>
+                    </li>
+                    {% if gender == 'Male' %}
+                    <li class="fshape"><span>
+                      <!-- <i><img width="30" src="{% static 'assets/Age.png' %}" alt=""></i> -->
+                      Mustache</span><strong>{{ mustache}}</strong>
+                    </li>
+                    {% endif %}
                   </ul>
 
                   <div class="photo">
-                    <img src="http://13.251.101.67:8000/{{image_url }}" alt="" id="userpic">
+                    <img src="{{image_url }}" alt="" id="userpic">
                   </div>
 
                   <ul class="right">
-                    <li class="fshape"><span>
-                      <i><img width="30" src="{% static 'assets/FaceWidth.png' %}" alt=""></i>
-                      Face Width</span><strong>{{ facewidth}}</strong>
+                    <li class="fshape">
+                      <span>
+                      <!-- <i><img width="30" src="{% static 'assets/FaceWidth.png' %}" alt=""></i> -->
+                      Face Width</span>
+                      <strong>{{ facewidth}}</strong>
                     </li>
 
-                    <li class="fwidth"><span><i><img width="30" src="{% static 'assets/FaceShape.png' %}" alt=""></i>
+                    <li class="fwidth">
+                      <span>
+                        <!-- <i><img width="30" src="{% static 'assets/FaceShape.png' %}" alt=""></i> -->
                       Face Shape</span>
                       <strong>{{ face }}</strong>
                     </li>
+                    <li class="fwidth">
+                      <span>
+                        <!-- <i><img width="30" src="{% static 'assets/FaceShape.png' %}" alt=""></i> -->
+                      Hair
+                      </span>
+                      <strong>{{ hair }}</strong>
+                    </li>
+                    <li class="fwidth">
+                      <span>
+                        <!-- <i><img width="30" src="{% static 'assets/FaceShape.png' %}" alt=""></i> -->
+                      Expression
+                      </span>
+                      <strong>{{ expression }}</strong>
+                    </li>
 
-                    
-
+                    {% if gender == 'Male' %}
+                    <li class="fshape"><span>
+                      <!-- <i><img width="30" src="{% static 'assets/Age.png' %}" alt=""></i> -->
+                      Beard</span><strong>{{ beard}}</strong>
+                    </li>
+                    {% endif %}
                   </ul>
+                  
                 </div>
 
                 <ul class="contours">
