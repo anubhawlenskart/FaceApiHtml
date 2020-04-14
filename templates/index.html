@@ -14,8 +14,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="{% static './css/brfv5_examples.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static './css/brfv5_examples.css' %}"> -->
 
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+  <!-- <script type="text/javascript" src="{% static 'js/webcam.min.js' %}"></script> -->
 </head>
 
 <body>
@@ -23,15 +25,15 @@
     <div class="page-title"><h1><span>KIRA</span> - AI Face Analyser</h1></div>
     <div class="capture-photo logo-show">
       <span class="red">{{ error }}</span>
-      <!--
-        <div class="capture-main" style="display: none;">
-            <div class="capture-image-button">
-                <button class="capture-image" id="capture-image">Capture Image</button>
-                <span class="close-btn">X</span>
-            </div>
-           
+      
+       <div class="capture-main" style="display: none;">
+        <div class="capture-image-button">
+          <div id="my_camera"></div>
+          <button class="capture-image" id="capture-image" onClick="take_snapshot()">Capture Image</button>
+          <span class="close-btn">X</span>
         </div>
-      -->
+      </div>
+      
         <div class="capture-image-box">  
           <div class="capture-image-inner"> 
             <div class="upload-info">
@@ -62,120 +64,148 @@
             <div class="uploaded-image" style="display: none;">
             <img src="{% static 'assets/orginal-photo.jpg' %}" alt="">
            <div class="capture-image-button">
-                <button class="capture-image" type="submit">Upload Image</button>
+                <button class="capture-images" type="submit">Upload Image</button>
             </div>
           </div>
           </div>
         </div>
-       <!--
-       <div class="camera-box">
+       
+       <!-- <div class="camera-box">
         <span class="or">OR</span>
         <div class="selfie">
           <i><img src="{% static 'assets/ClickASelfie.png' %}" width="35" alt=""></i>
           <span>Click-A-Selfie</span>
         </div>
-      </div>
-    -->
+      </div> -->
+    
         <div class="logo-wrapper">
             <a href="/" class="logo">
                 <img src="{% static 'assets/spalsh.png' %}" alt=""></a>
         </div>
 
     </div>
-<!--     <div id="particles-js" class="single"></div>
- -->
+
+    <!--<div id="particles-js" class="single"></div>-->
+
     <div class="content-main" style="display: none;">
         <div id="home-page">
           <div id="loader"> </div>
-            <div id="__brfv5" class="__brfv5"></div>
-        </div>
-    </div>
-    <!--
-    <div id="content">
-        <div class="container">
-            <div id="kira-recomend-page" style="display: none;">
-                <div class="box-photo">
-                     <h2>Analysis</h2>
-                     <div class="capture-image-button">
-                      <button class="capture-image">Retry</button>
-                  </div>
-                    <div class="photo-img">
-                        
-                        <div class="features">
-                            <ul class="left">
-                              <li class="age"><span><i><img width="30" src="assets/Age.png" alt=""></i>Age</span><strong>25-30</strong></li>
-                                <li class="gender"><span><i><img width="30" src="assets/Gender.png" alt=""></i>Gender</span><strong>Male</strong></li>
-                               
-                            </ul>
-
-                            <div class="photo">
-                               <img src="assets/orginal-photo.jpg" alt="" id="userpic">
-                            </div>
-
-                             <ul class="right">
-                                <li class="fshape"><span><i><img width="30" src="assets/FaceShape.png" alt=""></i>Face Shape</span><strong>Round</strong></li>
-                                 <li class="fwidth"><span><i><img width="30" src="assets/FaceWidth.png" alt=""></i>Face Width</span><strong>152.1000</strong></li>
-                                
-                            </ul>
-                        </div>
-
-                        <ul class="contours">
-                          <li><span><i><img src="assets/Contours.png" alt="" style="width: 31px;"></i>Contours</span></li>
-                        </ul>
-
-                        <ul class="contours-data">
-                          
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-                          <li>205, 344</li>
-
-                        </ul>
-                    </div>
-                </div>
+            <div id="__brfv5" class="__brfv5">
+              
             </div>
         </div>
+    </div>
+    
+     <div id="content" style="display: none;">
+        <!-- <div class="container">
+        <div class="error_message" id="error_message">
+        </div>
+        <div id="kira-recomend-page">
+          <div class="box-photo">
+            <h2>Analysis</h2>
+            <div class="capture-image-button">
+              <button class="capture-image">Retake</button>
+            </div>
+            <div class="photo-img">
+               <div class="features features-top-list">
+               <ul class="left">
+                  <li class="age">
+                    <span>
+                      Age
+                    </span>
+                    <strong id="kira_age">--</strong>
+                  </li>
+                  <li class="gender">
+                    <span>
+                      Gender
+                    </span>
+                    <strong id="kira_gender">--</strong>
+                  </li>
+                   <li class="fshape">
+                      <span>
+                        Face Shape
+                      </span>
+                      <strong id="kira_face">--</strong>
+                    </li>
+                </ul>
+              </div>
+
+              <div class="features">
+                <ul class="left">
+                   <li class="fwidth">
+                    <span>
+                      Face Width
+                    </span>
+                    <strong id="kira_facewidth">--</strong>
+                  </li>
+                 
+                  <li class="fageestimation">
+                    <span>
+                      Age Estimation
+                    </span>
+                    <strong id="kira_ageEstimation">--</strong>
+                  </li>
+
+                  <li class="feyeglass">
+                    <span>
+                      Eyeglass
+                    </span>
+                    <strong id="kira_eyeglass"></strong>>--</strong>
+                  </li>
+                  <li class="fmustache">
+                    <span>
+                      Mustache
+                    </span>
+                    <strong id="kira_mustache">--</strong>
+                  </li>
+                </ul>
+
+                <div class="photo photo-capture" >
+                  <img src="{% static 'assets/man.png' %}" alt="Pic" id="kira_maleimg"/>
+                  <img src="{% static 'assets/woman.png' %}" alt="Pic" id="kira_femaleimg" style="display: none;"/>
+                  
+                </div>
+
+                 <div class="photo orginal-photo-box" id="orginal-photo-box">
+                  <img src="{% static 'assets/orginal-photo.jpg' %}" alt="Pic"/>
+                </div>
+
+                <ul class="right">
+                    <li class="fhair">
+                      <span>
+                      Hair
+                      </span>
+                      <strong id="kira_hair">--</strong>
+                    </li>
+                    <li class="expression">
+                      <span>
+                      Expression
+                      </span>
+                      <strong id="kira_expression">--</strong>
+                    </li>
+                    <li class="fbeard">
+                      <span>
+                      Beard</span><strong id="kira_beard">--</strong>
+                    </li>
+                   
+                    <li class="fcontours"><span>Contours</span></li>
+                </ul>
+              </div>
+
+             
+              <div id="kira_contours">
+                <ul class="contours-data">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
       </div>
-    -->
-        <script type="module" src="{% static 'js/examples/face_tracking__track_one_face.js' %}"></script>
-        <script src="{% static 'js/particles.js' %}"></script>
-         <script src="{% static 'js/app.js' %}"></script>
+    
+        <!-- <script type="module" src="{% static 'js/examples/face_tracking__track_one_face.js' %}"></script> -->
+        <!-- <script src="{% static 'js/particles.js' %}"></script> -->
+         <!-- <script src="{% static 'js/app.js' %}"></script> -->
 
 
         <script>
@@ -206,6 +236,7 @@
           $(".upload-info").fadeOut();
           $(".capture-main").show();
           $(".content-main").show();
+          openCam();
         });
 
       });
@@ -240,8 +271,10 @@
          
         });
 
+     
 
         </script>
+
        <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
        <script  src="{% static 'js/function.js' %}"></script>
         <script src="{% static 'js/kira.js' %}"></script>

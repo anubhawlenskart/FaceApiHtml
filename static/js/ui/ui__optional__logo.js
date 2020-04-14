@@ -19,7 +19,7 @@ export const mountLogo = (node) => {
     __brfv5__logo.href       = '#'
     __brfv5__logo.target     = '_blank'
 
-    __brfv5__img.src         = './assets/logo.png'
+    __brfv5__img.src         = './staic/assets/logo.png'
     __brfv5__img.alt         = 'Kira logo'
 
     __brfv5__logo.appendChild(__brfv5__img)

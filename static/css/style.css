@@ -16,6 +16,16 @@ html, body {
 width: 100%;
   position: relative;
 }
+#__brfv5 video{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  display: none;
+
+}
 .btn{
   background: #000;
   border:none;
@@ -155,22 +165,22 @@ img{
   z-index: 999;
 }
 .capture-main{
- width: 540px;
-height: 342px;
+ max-width: 436px;
+height: 305px;
 position: absolute;
 left: 0px;
 right: 0;
-top: -59px;
+top: -60px;
 bottom: 0;
 margin: auto;
 background: url(../assets/overlay.png) center center no-repeat;
 z-index: 9999;
 background-size: cover;
-border-radius: 23px;
+border-radius: 30px;
 }
 .capture-image-box{
-   width: 600px;
-  height: 400px;
+   max-width: 500px;
+  height: 350px;
   position: absolute;
   left: 0px;
   right: 0;
@@ -221,6 +231,8 @@ border-radius: 23px;
   top: -15px;
   font-size: 20px;
   cursor: pointer;
+  z-index: 99999;
+  border: 1px solid #eee;
 }
 .or{
   color: #333;
@@ -250,6 +262,13 @@ button ,span.capture-image{
   margin: auto;
   text-align: center;
 }
+.box-body {
+    height: 187px;
+    overflow: hidden;
+}
+.preview-zone .capture-image{
+ bottom: -24px;
+}
 button:focus{
   box-shadow: none;
   outline: none;
@@ -270,16 +289,22 @@ button:focus{
   position: absolute;
   font-weight: 600;
 }
-#content{
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: -2px;
-  bottom: 0px;
-  margin: auto;
+.lkvideo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 453px;
+    height: 305px;
+    top: 184px;
+    overflow: hidden;
 }
 
-
+.content-main video {
+    transform: rotateY(180deg);
+    width: 100% !important;
+    height: 326px !important;
+}
 .orginal-photo {
   margin-right: 60px;
   position: absolute;
@@ -292,11 +317,7 @@ button:focus{
   border-radius: 5px;
   width: 100%;
 }
-.photo-img .photo img{
-  height: 355px;
-  object-fit: cover;
-  border-radius: 50%;
-}
+
 .product-features{
   background: #f5f5f5;
   padding: 30px 0;
@@ -308,9 +329,6 @@ button:focus{
 .features {
   width: 100%;
   display: flex;
-}
-.features+.features{
-  padding-left:10%;
 }
 .features h2,.product-list h2{
   font-size: 26px;
@@ -335,26 +353,65 @@ margin: 0 0 25px 0;
 .photo-img .contours li{
   margin-bottom: 0px;
 }
+.features.features-top-list{
+  display: block;
 
+}
+.features.features-top-list li{
+  display: inline-block;
+  margin: 0 50px;
+}
+.features.features-top-list li span{
+  position: relative;
+}
+.features.features-top-list .left li span:before{
+  left: 100%;
+  right: auto;
+  width:36px;
+  top: 30px;
+}
+.features.features-top-list .left li.fshape span:before{
+ left: -38px;
+  right: auto;
+  width: 38px;
+  top: 33px;
+}
+.features.features-top-list .left li span:after{
+ left: auto;
+  right: 100px;
+  bottom: -63px;
+  top: auto;
+  width: 118px;
+  -ms-transform: rotate(112deg);
+    transform: rotate(112deg);
+
+}
+.features.features-top-list .left li.age span:after{
+ width: 140px;
+  left: 39px;
+  top: 87px;
+  -ms-transform: rotate(54deg);
+  transform: rotate(54deg);
+}
+.features.features-top-list ul{
+  margin-bottom: 30px;
+  width: auto;
+}
 .features li,.contours li{
-  margin: 0 0 70px;
   list-style: none;
   color: #333;
   font-weight: 400;
   line-height: normal;
   font-family: 'Rajdhani', sans-serif;
   word-wrap: break-word;
-  font-size: 24px;
+  font-size: 20px;
   position: relative;
+  margin-top: 20px;
 
 }
 .features li span,.contours li span{
   color: #101426;
-  background: #fff;
-  border-radius: 12px 0px 12px 0px;
   display: inline-block;
-  padding: 10px 25px;
-  border: 2px solid #101426;
   text-transform: uppercase;
 }
 .contours li span i{
@@ -364,7 +421,7 @@ margin: 0 0 25px 0;
 .contours li strong{
   display: block;
   font-weight: 800;
-  margin-top: 10px;
+  font-size: 15px;
   color: #fff;
 }
 .contours-data li{
@@ -401,7 +458,8 @@ margin: 0 0 25px 0;
   top: 35px;
 }
 .features .left li.gender span:before{
-  width: 127px;
+  width: 32px;
+  display: none;
 }
 .features .right li span:before{
   position: absolute;
@@ -428,20 +486,90 @@ margin: 0 0 25px 0;
   width: 31px !important;
 }
 .features .left li span:after{
-  position: absolute;
+ position: absolute;
   content: "";
   height: 1px;
   background: #000;
-  width: 100px;
-  left: 99%;
-  top: 52px;
-  -ms-transform: rotate(20deg); 
-  transform: rotate(20deg); 
+  width: 120px;
+  left: 100%;
+  top: 42px;
+  -ms-transform: rotate(6deg);
+  transform: rotate(6deg);
 }
 .features .left li.gender span:after{
- -ms-transform: rotate(-20deg); 
-  transform: rotate(-20deg); 
-  top: 19px;
+  -ms-transform: rotate(90deg);
+   transform: rotate(90deg);
+   top: 102px;
+    width: 88px;
+    left: -9px;
+}
+.features .right li.fhair span:before {
+    width: 161px;
+}
+.features .right li.fbeard span:before {
+    width: 151px;
+}
+.features .right li.fhair span:after{
+  top: 41px;
+  width: 124px;
+  -ms-transform: rotate(-6deg);
+    transform: rotate(-6deg);
+}
+.features .right li.fbeard span:after{
+ top: -1px;
+  width: 134px;
+ -ms-transform: rotate(32deg);
+  transform: rotate(32deg);
+    right: 98%;
+}
+.features .left li.fmustache span:before{
+  right: 50px;
+  width: 90px;
+}
+.features .left li.fmustache span:after{
+   width: 219px;
+    left: 81%;
+    top: -27px;
+    -ms-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+}
+div#kira_contours {
+    margin-top: 32px;
+}
+.features .right li.fcontours span:before{
+    width: 71px;
+    left: 55px;
+    top: 12px;
+}
+.features .right li.expression span:before{
+  width: 128px;
+}
+.features .right li.fcontours span:after{
+  width: 211px;
+  right: 81%;
+  top: -43px;
+  -ms-transform: rotate(32deg);
+  transform: rotate(32deg);
+}
+.features .left li.feyeglass span:after{
+ top: -1px;
+  -ms-transform: rotate(11deg);
+  transform: rotate(-32deg);
+  width: 137px;
+  left: 97%;
+}
+.features .left li.fageestimation span:after{
+   width: 123px;
+    left: 99%;
+    top: 17px;
+    -ms-transform: rotate(-17deg);
+    transform: rotate(-17deg);
+}
+.features .right li.expression span:after {
+       top: 19px;
+    -ms-transform: rotate(17deg);
+    transform: rotate(17deg);
+    width: 114px;
 }
 .features .right li span:after{
   position: absolute;
@@ -459,6 +587,7 @@ margin: 0 0 25px 0;
   font-weight: 800;
   margin-top: 10px;
   color: #fff;
+  font-size: 18px;
 }
 .box-photo iframe{
   border:none;
@@ -469,7 +598,7 @@ margin: 0 0 25px 0;
 }
 div#kira-recomend-page {
     text-align: center;
-    padding-top: 10%;
+    padding-top: 4%;
 }
 div#kira-recomend-page h2{
   margin-bottom: 20px;
@@ -479,21 +608,38 @@ div#kira-recomend-page h2{
 div#kira-recomend-page .capture-image-button{
  position: absolute;
  right: 20px;
- top: 20px;
+ top: 185px;
 }
 div#kira-recomend-page .capture-image-button button{
-  position: static;
+ position: static;
   cursor: pointer;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
+  padding: 8px;
+  width: 140px;
 }
 .photo{
 /* background: url(../assets/layer.png) center center no-repeat;
 */  background-size: 100%;
   padding: 10px;
-  width: 355px;
-  height: 355px;
+  max-width: 355px;
   border-radius: 50%;
+}
+.orginal-photo-box{
+ background: url(../assets/layer.png) center center no-repeat;
+  background-size: 100%;
+  max-width: 150px;
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: 5px solid #101426;
+  padding: 0px;
+}
+.orginal-photo-box img{
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .product-list{
   margin-top: 100vh;
@@ -575,7 +721,7 @@ div#kira-recomend-page .capture-image-button button{
   border: 2px dashed #91b0b3;
   color: #92b0b3;
   position: relative;
-  height: 338px;
+  height: 290px;
   border-radius: 25px;
 }
  
@@ -586,7 +732,7 @@ div#kira-recomend-page .capture-image-button button{
   right: 0;
   text-align: center;
   width: 100%;
-  top: 90px;
+  top: 65px;
   font-size: 16px;
 }
 .dropzone-desc p{
@@ -672,9 +818,9 @@ div#kira-recomend-page .capture-image-button button{
   top: 6px;
 }
 .__brfv5 .vh{
-  width: 421px !important;
+  width: 436px !important;
   height: auto !important;
-  top: 47% !important;
+  top: 54% !important;
 }
 .wrapper{
   background: linear-gradient(87deg, #11cdef 0, #1171ef 100%);
@@ -701,19 +847,19 @@ div#kira-recomend-page .capture-image-button button{
 }
 
 #loader{
-	position: fixed;
-    top: -59px;
-    z-index: 9999;
-    width: 541px;
-    height: 342px;
-    display: none;
-    background: url(../assets/loader.gif) center center no-repeat;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    margin: auto;
-    background-size: cover;
-    border-radius: 20px;
+position: fixed;
+  top: -79px;
+  z-index: 9999;
+  width: 476px;
+  height: 326px;
+  display: none;
+  background:#f0f0fc url(../assets/loader.gif) center center no-repeat;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  background-size: cover;
+  border-radius: 30px;
 }
 .cv-spinner {
 	height: 100%;
@@ -766,25 +912,169 @@ div#kira-recomend-page .capture-image-button button{
 .logo-show .logo-wrapper{
   z-index: 9999;
 }
-.photo-img .photo img {
-  height: 250px;
+div#kira-recomend-page{
+  padding-top: 10%;
+}
+.orginal-photo-box img{
+  height: 110px;
+}
+.orginal-photo-box{
+  max-width: 120px;
+}
+.features .left li.fmustache span:before {
+    right: 40px;
+    width: 99px;
+}
+.features .right li.fcontours span:before {
+    width: 60px;
+    left: 44px;
+    top: 12px;
+}
+.features .right li.fbeard span:before {
+    width: 133px;
+    left: -3px;
+}
+.features .right li.expression span:before {
+    width: 111px;
+}
+.features .right li.fhair span:before {
+    width: 138px;
+}
+.features .left li span:before{
+  width: 115px;
 }
 }
 @media screen and (max-width:1023px){
+ div#kira-recomend-page{
+  padding-top: 15%;
+}
+.features.features-top-list .left li.fshape span:after {
+    width: 88px;
+    bottom: -49px;
+    right: 111px;
+}
+.features .left li span:before {
+    width: 63px;
+}
+.features .left li.fmustache span:before {
+    right: 14px;
+    width: 45px;
+}
+.features .right li.fhair span:before {
+    width: 73px;
+}
+.features .right li.expression span:before {
+    width: 52px;
+}
+.features .right li.fbeard span:before {
+    width: 75px;
+    left: -8px;
+}
+.features .right li.fcontours span:before {
+    width: 26px;
+    left: 20px;
+    top: 12px;
+}
+.features .right li.fhair span:after{
+  width: 88px;
+}
+.features .right li.expression span:after{
+  width: 90px;
+  top: 22px;
+}
+.features .left li span:after{
+  width: 87px;
+  top: 40px;
+}
+.features .left li.fageestimation span:after{
+  width: 90px;
+  top: 22px;
+}
+.features .left li.feyeglass span:after {
+    top: -2px;
+    width: 123px;
+    left: 93%;
+}
+.features .right li.fbeard span:after {
+    top: 4px;
+    width: 119px
+}
+.features .left li.fwidth span:before {
+    width: 55px;
+}
+.features .left li.fmustache span:after {
+    width: 182px;
+    left: 78%;
+    top: -29px;
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.features .right li.fcontours span:after {
+    width: 168px;
+    right: 79%;
+    top: -41px;
+    -ms-transform: rotate(40deg);
+    transform: rotate(40deg);
+}
+.features.features-top-list .left li.age span:after {
+    width: 122px;
+    left: 42px;
+    top: 79px;
+    -ms-transform: rotate(54deg);
+    transform: rotate(54deg);
+}
+.features .left li.gender span:after {
+    -ms-transform: rotate(90deg);
+    transform: rotate(82deg);
+    top: 87px;
+    width: 52px;
+    left: 7px;
+}
+
+.features.features-top-list .left.fshape li span:after {
+    left: auto;
+    right: 111px;
+    bottom: -48px;
+    top: auto;
+    width: 87px;
+    -ms-transform: rotate(112deg);
+    transform: rotate(112deg);
+}
+
   .box-photo iframe{
     border: 1px solid #77ff00;
   }
-  .photo-img .photo img {
-    height: 630px;
-  }
-  .photo {
-    height: 630px;
-    width: 645px;
-    margin: auto;
+  .orginal-photo-box {
+    max-width: 90px;
+}
+.orginal-photo-box img{
+    height: 80px;
+}
+.features.features-top-list ul {
+    margin-bottom: 11px;
+}
+.features.features-top-list li{
+  margin: 0 40px;
+}
+.features li, .contours li{
+  margin-top: 14px;
+}
+.photo-capture{
+  max-width: 500px;
+}
+div#kira-recomend-page .capture-image-button button{
+  width: auto;
+  padding: 5px 15px;
+}
+.container{
+  width: 100%;
+}
+div#kira-recomend-page .capture-image-button{
+  top: 125px;
+  bottom: auto;
 }
   .__brfv5 .vh,.capture-main,.__brfv5 .swl{
     width: 100% !important;
-    height: auto !important;
   }
   .capture-main{
     background-size: 100%;
@@ -811,23 +1101,371 @@ div#kira-recomend-page .capture-image-button button{
 .features{
   padding-right: 0px;
 }
-#loader{
+#loader {
   width: 100%;
-  background-size: 90%;
+  background-size: 91%;
+  max-width: 471px;
+  background: #f0f0fc url(../assets/loader.gif) center center no-repeat;
 }
-.features li:nth-child(odd){
-  text-align: right;
-}
-.features li {
-    width: 46%;
-    padding: 0 2%;
-  }
 .features h2, .product-list h2{
   text-align: center;
 }
+.page-title{
+  top: 100px;
+}
+}
+
+@media screen and (max-width:767px){
+.page-title h1{
+  font-size: 30px;
+  margin-top: 0px;
+  padding-top: 80px;
+}
+.features .left li span:before{
+  width: 59px;
+}
+.features .left li.gender span:before,.features .right li span:before,.features .right li.fwidth span:before {
+    width: 50px;
+}
+.features li, .contours li{
+  margin: 0 0 30px;
+  font-size: 18px;
+}
+.__brfv5 .shl{
+  top: -56px;
+}
+div#kira-recomend-page{
+  padding-top: 14%;
+}
+.__brfv5 .vh, .capture-main{
+  height: 305px !important;
+}
+.__brfv5 .swl{
+  height: 320px !important;
+}
+.capture-main{
+  top: 236px ;
+}
+.__brfv5 .shl{
+  top: 6px !important;
+}
+.dropzone, .dropzone:focus{
+  height: 283px;
+}
+.__brfv5{
+  top: 109px !important;
+}
+.selfie{
+  margin-bottom: 30px;
+}
+.camera-box,.capture-photo,.capture-image-box,.page-title{
+  position: static;
+}
+#loader {
+    max-width: 100%;
+    top: 219px;
+    position: absolute;
+    background-size: cover;
+    width: auto;
+    margin: auto 71px;
+    height: 351px;
+    border-radius: 34px;
+}
+.features ul{
+  width: 200px;
+}
+.photo {
+    width: 100%;
+    margin: 0;
+}
+
+.features li:nth-child(odd) {
+    text-align: center;
+}
+
+.features .left li span:after,.features .right li span:after{
+  width: 70px;
+}
+.orginal-photo-box{
+  margin-top: 0px;
+}
+.features.features-top-list .left li span:before{
+  width: 39px;
+}
+.features.features-top-list .left li.age span:after {
+    width: 110px;
+    left: 44px;
+    top: 74px;
+ }
+ .features.features-top-list .left li.fshape span:before {
+    left: -49px;
+    right: auto;
+    width: 43px;
+    top: 29px;
+} 
+.features .right li.fhair span:before {
+    width: 34px;
+    top: 36px;
+}  
+.features .left li.fwidth span:before {
+    width: 24px;
+    top: 36px;
+}
+.features .left li span:before {
+    width: 34px;
+}
+.features .left li.feyeglass span:after {
+    top: -2px;
+    width: 145px;
+    left: 90%;
+}
+.features .left li.fageestimation span:before{
+ right: -25px;
+}
+.features .left li.fwidth span:after {
+    width: 100px;
+    top: 41px;
+}
+.features .left li.fageestimation span:after {
+    width: 70px;
+    top: 25px;
+    left: 118%;
+}
+.features .left li.fmustache span:before {
+    right: -2px;
+    width: 32px;
+}
+.features .left li.fmustache span:after {
+    width: 202px;
+    left: 71%;
+    top: -41px;
+    -ms-transform: rotate(-49deg);
+    transform: rotate(-49deg);
+}
+.features .right li.fcontours span:before {
+    width: 9px;
+    left: 3px;
+    top: 13px;
+}
+div#kira_contours {
+    margin-top: 0;
+}
+.features .right li.expression span:before {
+    width: 28px;
+    left: -19px;
+    top: 32px;
+}
+.features .right li.expression span:after {
+    width: 74px;
+    top: 22px;
+    right: 115%;
+}
+
+.features .right li.fbeard span:before {
+    width: 44px;
+    left: -8px;
+}
+
+.capture-image-box .preview-zone img{
+  height: 200px;
+}
+
 }
 
 @media screen and (max-width:479px){
+ .__brfv5 .vh{
+  top: 104px !important;
+ } 
+ div#kira-recomend-page {
+    padding-top: 65px;
+}
+.capture-image-box .preview-zone img{
+  height: 150px;
+}
+.features li strong{
+  font-size: 12px;
+  margin-top: 5px;
+}
+.features .right li.fhair span:before {
+    width: 26px;
+    top: 17px;
+}
+.features .right li.fhair span:after {
+    width: 73px;
+    right: 97%;
+    -ms-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+    top: 33px;
+}
+.features .right li.expression span:before{
+  width: 23px;
+}
+.features .left li.feyeglass span:before {
+    width: 24px;
+    top: 19px;
+}
+.features .left li.feyeglass span:after {
+    top: -3px;
+    width: 85px;
+    left: 90%;
+}
+.features .left li.fageestimation span:before{
+  top: 35px;
+}
+.features .left li.fmustache span:before {
+    right: -2px;
+    width: 23px;
+    top: 18px;
+}
+.features .left li.fmustache span:after {
+    width: 106px;
+    left: 87%;
+    top: -15px;
+    -ms-transform: rotate(-39deg);
+    transform: rotate(-39deg);
+}
+.features .right li.expression span:after {
+    width: 52px;
+    top: 24px;
+    right: 124%;
+    -ms-transform: rotate(-11deg);
+    transform: rotate(-11deg);
+}
+.features .right li.expression span:before{
+  top: 19px;
+}
+.features .right li.fbeard span:before {
+    width: 27px;
+    left: -8px;
+    top: 16px;
+}
+.features .right li.fbeard span:after {
+    top: 7px;
+    width: 73px;
+    right: 109%;
+    -ms-transform: rotate(14deg);
+    transform: rotate(14deg);
+}
+.features .right li.fcontours span:before {
+    width: 9px;
+    left: -2px;
+    top: 7px;
+}
+.features .right li.fcontours span:after {
+    width: 92px;
+    right: 99%;
+    top: -10px;
+    -ms-transform: rotate(22deg);
+    transform: rotate(22deg);
+}
+.features.features-top-list .left li span:before{
+  top: 19px;
+}
+.dropzone, .dropzone:focus{
+  height: 205px;
+}
+.page-title h1{
+  padding-top: 90px;
+  margin-bottom: 30px;
+}
+.preview-zone .capture-image {
+    bottom: 3px;
+}
+.features.features-top-list li {
+    margin: 0 27px;
+}
+.features ul {
+    width: 75px;
+}
+.features.features-top-list .left li.age span:after {
+  width: 82px;
+  left: 30px;
+  top: 58px;
+  -ms-transform: rotate(71deg);
+  transform: rotate(71deg);
+}
+.photo-capture {
+    max-width: 205px;
+}
+.features .left li.gender span:after {
+  -ms-transform: rotate(86deg);
+    transform: rotate(86deg);
+    top: 61px;
+    width: 46px;
+    left: -2px;
+}
+.features .left li.fwidth span:before {
+    width: 24px;
+    top: 21px;
+    right: -10px;
+}
+.features .left li.fwidth span:after {
+    width: 63px;
+    top: 35px;
+    left: 110%;
+    -ms-transform: rotate(26deg);
+    transform: rotate(26deg);
+}
+.dropzone-desc p{
+  font-size: 24px;
+  margin-top: 12px;
+}
+.contours-data li{
+  font-size: 12px;
+}
+.photo-img {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 300px;
+}
+.features.features-top-list .left li.fshape span:before {
+    left: -29px;
+    right: auto;
+    width: 30px;
+    top: 22px;
+}
+.features.features-top-list .left li.fshape span:after {
+    width: 65px;
+    bottom: -39px;
+    right: 70px;
+}
+.orginal-photo-box {
+    margin-top: 0px;
+    right: 10px;
+    top: 10px;
+    max-width: 70px;
+}
+.orginal-photo-box img{
+  height: 60px;
+}
+.features li, .contours li {
+    margin: 0 0 10px;
+    font-size: 12px;
+}
+.features .left li.fageestimation span:after {
+    width: 45px;
+    top: 28px;
+    left: 133%;
+}
+div#kira-recomend-page .capture-image-button {
+    top: 91px;
+    bottom: auto;
+    right: 10px;
+}
+div#kira-recomend-page .capture-image-button button {
+    width: auto;
+    padding: 5px 9px;
+    font-size: 15px;
+}
+div#kira-recomend-page h2{
+  font-size: 40px;
+}
+.features {
+    padding-right: 0px;
+    margin: 0 -30px;
+    width: auto;
+} 
 .title h1{
   top: 120px;
   bottom: auto;
@@ -838,16 +1476,14 @@ div#kira-recomend-page .capture-image-button button{
     display: block;
     margin: 0 auto 20px;
 }
+.capture-image-box {
+    margin: 0 auto;
+    height: 250px;
+    padding: 15px;
+    max-width: 330px;
+}
 .capture-image-button {
     bottom: 90px;
-}
-.photo-img .photo{
-  height: 300px;
-  width: 300px;
-  margin: auto;
-}
-.photo-img .photo img {
-    height: 300px;
 }
 
 .logo{
@@ -856,8 +1492,13 @@ div#kira-recomend-page .capture-image-button button{
 .logo-show .logo-wrapper {
   margin-bottom: 0;
   right: 20px;
-  bottom: 13px;
-  width: 60px;
+  width: 90px;
+}
+.dropzone-wrapper{
+  height: 218px;
+}
+.dropzone-desc{
+  top: 27px;
 }
 #content{
   padding: 0 20px;
@@ -876,15 +1517,69 @@ div#kira-recomend-page .capture-image-button button{
 .product-list ul li,.frame-box{
   width: 100%;
 }
+.capture-main {
+    top: -115px;
+    margin: auto 42px;
+    width: auto !important;
+}
+.content-main .__brfv5 {
+    top: -10px !important;
+}
+.__brfv5 .swl {
+    height: auto !important;
+}
+.__brfv5 .shl{
+  top: -94px;
+}
+.capture-main {
+ top: 169px;
+  margin: auto 61px;
+  width: auto !important;
+  background-size: cover;
+  height: 218px !important;
+  border-radius: 20px;
+  bottom: auto;
+}
+.content-main .__brfv5 .swl {
+    max-width: 290px;
+    top:181px !important;
+    height: 224px !important;
+    bottom: auto;
+}
+.__brfv5 .vh{
+  height: auto !important; 
+  border-radius: 20px;
+}
+#loader {
+ max-width: 328px;
+  top: 152px;
+  position: absolute;
+  background-size: cover;
+  width: auto;
+  margin: 0 auto;
+  height: 244px;
+  border-radius: 34px;
+  bottom: auto;
+}
 }
 @media screen and (max-width:375px){
   .product-list{
     margin-top: 90vh;
   }
+  .capture-main {
+    top: 168px;
+    margin: auto 40px;
+    height: 221px !important;
+  }
 }
 @media screen and (max-width:360px){
   .product-list{
     margin-top: 108vh;
+  }
+  .capture-main {
+    top: 168px;
+    margin: auto 35px;
+    height: 221px !important;
   }
 }
 @media screen and (max-width:359px){
