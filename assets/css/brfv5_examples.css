@@ -1,4 +1,4 @@
-.__brfv5        { position: absolute; top: 0; left: 0; width: 100%; height: 100% }
+.__brfv5        { position: absolute; top: 0; left: 0; width: 100% !important; height: 100% !important }
 .__brfv5        { font-family: Arial, sans-serif; font-size: 0.85em; }
 
 .__brfv5 .abs   { position: absolute; }
@@ -25,8 +25,8 @@
 .__brfv5 .cb    { box-sizing: border-box; border: #00a0ff solid 6px }
 .__brfv5 .fsimg { width: 64px; height: 64px; top: calc(50% - 32px); left: calc(50% - 32px) }
 
-.__brfv5 .swl   { width:  100vw; max-width: 421px; /*left: calc(50% - 320px)*/}
-.__brfv5 .shl   { height: auto; position: absolute;right: 0; left: 0; top: 0px;bottom: 0; margin: auto; }
+.__brfv5 .swl   { width:  100vw; max-width: 436px; /*left: calc(50% - 320px)*/}
+.__brfv5 .shl   {border-radius: 30px; height: auto; position: absolute;right: 0; left: 0; top: -60px;bottom: 0; margin: auto; height: 305px;overflow: hidden;}
 
 .__brfv5 .swp   { width:  100vw; /*max-width: 480px; *//*left: calc(50% - 240px)*/}
 .__brfv5 .shp   { height: 960px }
