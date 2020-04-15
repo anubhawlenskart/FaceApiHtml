@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse, FileResponse
+from django.http import HttpResponse, FileResponse, HttpResponseRedirect
+from django.urls import reverse
 import requests
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
@@ -10,7 +11,10 @@ import json
 
 # Create your views here.
 def home(request):
-    return render(request, 'index.html',{})
+    print(request.GET)
+    errorMsg = request.GET.get("error")
+    data = {"error": errorMsg}
+    return render(request, 'index.html',data)
 
 def analysedpic(request):
     if request.method == 'POST': 
@@ -18,23 +22,37 @@ def analysedpic(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
-        imagePath = settings.BASE_DIR+uploaded_file_url   
-        url = 'https://kira-api.lenskart.com/getfaceattributesapi/'
-        files = {'webphoto': open(imagePath, 'rb')}
-        req = requests.post(url, files=files)
-        res = req.json()
-        data = json.dumps(res)
-        isValid = validateJSON(data)
-        if isValid:
-            data = json.loads(data)
-            print(data)
-            data['landmarksArr'] = data['landmarks'].split(',')
-            #data = json.dumps(data)
-            return render(request, 'analysedpic.html', data)
+        imagePath = settings.BASE_DIR+uploaded_file_url
+        if os.path.exists(imagePath):
+            checkFile = open(imagePath, 'rb') 
+            print("CHECKFILE")
+            print(checkFile)  
+            url = 'https://kira-api.lenskart.com/getfaceattributesapi/'
+            files = {'webphoto': open(imagePath, 'rb')}
+            req = requests.post(url, files=files)
+            res = req.json()
+            data = json.dumps(res)
+            #print(data['message'])
+
+            isValid = validateJSON(data)
+            if isValid:
+                data = json.loads(data)
+                #print(data)
+                error = data.get('message','0') 
+                if error !='0':
+                    #url = reverse('home', kwargs={'error': error})
+                    #return HttpResponseRedirect(url)
+                    return render(request, 'index.html', {'error': data['message']})
+                else:
+                    data['landmarksArr'] = data['landmarks'].split(',')
+                    #data = json.dumps(data)
+                    return render(request, 'analysedpic.html', data)
+            else:
+                return render(request, 'index.html', {'error':"Invalid image"})
         else:
-           return render(request, 'index.html', {'error':"Somthing went wrong"})
+            return render(request, 'index.html', {'error': "Invalid file try another picture"})
     else:
-        return render(request, 'index.html')
+        return render(request, 'index.html', {'error':"Invalid image"})
 
 
 def userlist(request):
