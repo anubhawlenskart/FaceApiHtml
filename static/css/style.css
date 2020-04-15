@@ -9,7 +9,7 @@ html, body {
   body{
     background: linear-gradient(87deg, #11cdef 0, #1171ef 100%);
   }
-
+  
 .abs { position: absolute }
 .vh { visibility: hidden }
 #container{
@@ -102,7 +102,8 @@ width: 100%;
   border-radius: 0 0 3px 3px;
 }
 
-
+.errMsg { color: #800000 !important;  
+  padding-top: 2px;padding-left: 10px; font-weight: bold;}
 /* ---- particles.js container ---- */
 
 #particles-js{
@@ -1550,6 +1551,8 @@ div#kira-recomend-page h2{
   height: auto !important; 
   border-radius: 20px;
 }
+
+
 #loader {
  max-width: 328px;
   top: 152px;
@@ -1593,3 +1596,4 @@ div#kira-recomend-page h2{
     width: 100%;
   }
 }
+

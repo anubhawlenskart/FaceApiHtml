@@ -21,6 +21,7 @@ from faceshape import settings
 
 urlpatterns = [
     url(r'^$', home, name='home'),
+    url(r'^home', home, name='home'),
     url(r'^analysedpic/', analysedpic, name='analysed picture'),
     url(r'^list/', userlist, name='user list'),
 ]

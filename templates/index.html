@@ -24,15 +24,15 @@
   <div class="wrapper">
     <div class="page-title"><h1><span>KIRA</span> - AI Face Analyser</h1></div>
     <div class="capture-photo logo-show">
-      <span class="red">{{ error }}</span>
       
-       <div class="capture-main" style="display: none;">
+      
+       <!-- <div class="capture-main" style="display: none;">
         <div class="capture-image-button">
           <div id="my_camera"></div>
           <button class="capture-image" id="capture-image" onClick="take_snapshot()">Capture Image</button>
           <span class="close-btn">X</span>
         </div>
-      </div>
+      </div> -->
       
         <div class="capture-image-box">  
           <div class="capture-image-inner"> 
@@ -61,13 +61,19 @@
                    </div> 
               </form>
             </div>
+
             <div class="uploaded-image" style="display: none;">
             <img src="{% static 'assets/orginal-photo.jpg' %}" alt="">
            <div class="capture-image-button">
                 <button class="capture-images" type="submit">Upload Image</button>
             </div>
           </div>
+          
           </div>
+
+          {% if error %}
+            <div class="errMsg" style="color:red;padding-top: 2px;padding-left: 10px; font-weight: bold;">{{ error }}</div>
+          {% endif%}
         </div>
        
        <!-- <div class="camera-box">
@@ -80,7 +86,8 @@
     
         <div class="logo-wrapper">
             <a href="/" class="logo">
-                <img src="{% static 'assets/spalsh.png' %}" alt=""></a>
+                <img src="{% static 'assets/spalsh.png' %}" alt="">
+              </a>
         </div>
 
     </div>
