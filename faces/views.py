@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render
 from django.http import HttpResponse, FileResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -20,7 +22,9 @@ def analysedpic(request):
     if request.method == 'POST': 
         myfile = request.FILES['img_logo']
         fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
+        newimagestamp = datetime.now().strftime('%Y-%m-%d') + "_" + datetime.now().strftime('%H-%M-%S') + "_" + datetime.now().strftime('%f')
+        newimage = "firstimage" + newimagestamp + ".jpg"
+        filename = fs.save(newimage, myfile)
         uploaded_file_url = fs.url(filename)
         imagePath = settings.BASE_DIR+uploaded_file_url
         if os.path.exists(imagePath):
